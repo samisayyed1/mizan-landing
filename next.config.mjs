@@ -14,11 +14,11 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   poweredByHeader: false,
   compress: true,
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion", "recharts"],
+    optimizePackageImports: ["lucide-react", "recharts"],
   },
   images: {
     formats: ["image/avif", "image/webp"],

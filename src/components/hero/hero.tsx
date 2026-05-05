@@ -1,8 +1,5 @@
-"use client";
-
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { heroCopy } from "@/content/copy";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AmbientGold } from "./ambient-gold";
@@ -13,33 +10,25 @@ import { HeroTerminal } from "./hero-terminal";
 import { ScrollCue } from "./scroll-cue";
 import { TrustStrip } from "./trust-strip";
 
-const HEADLINE_VARIANTS = {
-  hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.95,
-      delay: 0.15 + i * 0.12,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
-
 /**
- * Editorial layered hero — full premium choreography.
+ * Editorial layered hero — full premium choreography via CSS animations.
  *
- * z-order (bottom → top):
- *  1. AmbientGold — three drifting blurred blobs + 12 floating motes,
- *     pure CSS animation (no JS), gated by prefers-reduced-motion.
- *  2. CSS grid guides — 12-column hairlines.
- *  3. Crosshair print-marks at quadrants.
- *  4. Large balance-scale SVG behind right column with motion path-draw.
- *  5. Headline (line-by-line stagger with blur-to-clear), subhead, CTAs,
- *     trust strip — all on a 0.15s base + 0.12s stagger.
- *  6. HeroTerminal with live ticker, 3D-perspective tilt, hover lift.
- *  7. ScrollCue at bottom — pulsing gold hairline with "Scroll" label.
+ * Entrance is pure CSS (hero-rise / hero-fade / hero-tilt-in keyframes
+ * + delay-N classes). Live behaviors (magnetic button, ticker, hover
+ * lifts) attach via Motion post-hydration. This split keeps the LCP
+ * paint-only and guarantees the entrance choreography fires regardless
+ * of Motion's mount-effect timing.
+ *
+ * Choreography:
+ *   0.00s  Eyebrow (pulse dot + private portfolio terminal)
+ *   0.15s  Headline line 1 — Wealth,
+ *   0.27s  Headline line 2 — italic gold-gradient 'in'
+ *   0.39s  Headline line 3 — balance.
+ *   0.55s  Terminal tilts in
+ *   0.70s  Subhead
+ *   0.95s  CTAs
+ *   1.10s  Trust strip pills (handled inside TrustStrip)
+ *   2.20s  Scroll cue (handled inside ScrollCue)
  */
 export function Hero() {
   const [line1, line2, line3] = heroCopy.headline;
@@ -54,18 +43,13 @@ export function Hero() {
         <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16">
           {/* Editorial column */}
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2"
-            >
+            <div className="hero-fade delay-0 inline-flex items-center gap-2">
               <span
                 aria-hidden
                 className="pulse-dot block h-1.5 w-1.5 rounded-full bg-[var(--gold-cream)]"
               />
               <p className="eyebrow text-[var(--gold-cream)]">{heroCopy.eyebrow}</p>
-            </motion.div>
+            </div>
 
             <h1
               id="hero-heading"
@@ -75,58 +59,18 @@ export function Hero() {
                 lineHeight: 0.92,
               }}
             >
-              <motion.span
-                custom={0}
-                initial="hidden"
-                animate="show"
-                variants={HEADLINE_VARIANTS}
-                className="block"
-              >
-                {line1}
-              </motion.span>
-              <motion.span
-                custom={1}
-                initial="hidden"
-                animate="show"
-                variants={HEADLINE_VARIANTS}
-                className="block italic gold-gradient-text"
-              >
-                {line2}
-              </motion.span>
-              <motion.span
-                custom={2}
-                initial="hidden"
-                animate="show"
-                variants={HEADLINE_VARIANTS}
-                className="block"
-              >
-                {line3}
-              </motion.span>
+              <span className="hero-rise delay-1 block">{line1}</span>
+              <span className="hero-rise delay-2 block italic">
+                <span className="gold-gradient-text">{line2}</span>
+              </span>
+              <span className="hero-rise delay-3 block">{line3}</span>
             </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-8 max-w-xl text-balance text-[17px] leading-relaxed text-[var(--text-muted)] md:text-lg"
-            >
+            <p className="hero-fade delay-5 mt-8 max-w-xl text-balance text-[17px] leading-relaxed text-[var(--text-muted)] md:text-lg">
               {heroCopy.subhead}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.95,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6"
-            >
+            <div className="hero-fade delay-7 mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
               <MagneticButton href="/contact" variant="primary">
                 {heroCopy.primaryCta}
               </MagneticButton>
@@ -141,7 +85,7 @@ export function Hero() {
                   className="h-3.5 w-3.5 transition-transform duration-150 ease-out group-hover:translate-x-1"
                 />
               </Link>
-            </motion.div>
+            </div>
 
             <TrustStrip />
           </div>
@@ -151,25 +95,24 @@ export function Hero() {
             {/* Large decorative balance scale behind the terminal */}
             <div
               aria-hidden
-              className="pointer-events-none absolute -top-16 -right-12 -z-10 hidden text-[var(--gold-deep)] opacity-40 lg:block xl:-right-16"
+              className="hero-fade delay-3 pointer-events-none absolute -top-16 -right-12 -z-10 hidden text-[var(--gold-deep)] opacity-40 lg:block xl:-right-16"
             >
               <BalanceScale className="h-[260px] w-[260px] xl:h-[320px] xl:w-[320px]" />
             </div>
 
-            <HeroTerminal />
+            <div className="hero-tilt-in delay-4">
+              <HeroTerminal />
+            </div>
           </div>
         </div>
 
         {/* Hero accent line — draws across on load */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
+        <div
           className="accent-line pointer-events-none absolute inset-x-0 bottom-0 h-px"
           aria-hidden
         >
           <div className="mx-auto h-px max-w-[var(--container-default)] bg-gradient-to-r from-transparent via-[rgba(212,165,116,0.5)] to-transparent" />
-        </motion.div>
+        </div>
       </div>
 
       <ScrollCue />

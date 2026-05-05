@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const BASE_VALUE = 4_289_531;
 
@@ -14,48 +13,34 @@ function formatUSD(n: number): string {
 }
 
 /**
- * Compact portfolio-terminal preview for the hero with live-ticking
- * value, scroll-tied parallax, and hover lift. Tilted on a 3D perspective
- * for premium depth.
+ * Compact portfolio-terminal preview for the hero with a live-ticking
+ * value driven by useState + setInterval (no Motion dependency for the
+ * ticker — keeps it deterministic).
  *
- * Keeps the SSR-paint contract: initial value renders server-side, then
- * Motion attaches and starts the gentle ticker post-hydration.
+ * Entrance animation handled by the parent's CSS hero-tilt-in class.
  */
 export function HeroTerminal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const target = useMotionValue(BASE_VALUE);
-  const spring = useSpring(target, { stiffness: 30, damping: 18 });
-  const display = useTransform(spring, (v) => formatUSD(v));
+  const [value, setValue] = useState(BASE_VALUE);
   const [trend, setTrend] = useState(17.85);
 
   useEffect(() => {
-    const tick = () => {
+    const id = setInterval(() => {
       // Realistic micro-movement: ±$200..$1200, biased slightly upward
-      const delta = (Math.random() - 0.45) * 1200;
-      target.set(target.get() + delta);
+      setValue((v) => v + (Math.random() - 0.45) * 1200);
       setTrend((t) => Math.max(15.6, Math.min(19.4, t + (Math.random() - 0.5) * 0.04)));
-    };
-    const id = setInterval(tick, 2200);
+    }, 2200);
     return () => clearInterval(id);
-  }, [target]);
+  }, []);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24, rotateX: 8 }}
-      animate={{ opacity: 1, y: 0, rotateX: 2 }}
-      transition={{ duration: 1.1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ rotateX: 0, y: -4 }}
-      style={{ transformStyle: "preserve-3d", transformPerspective: 2200 }}
-      className="relative"
-    >
+    <div className="relative">
       {/* Outer gold halo */}
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-12 -z-10 rounded-[64px] bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.22),transparent_70%)] blur-3xl"
       />
 
-      <div className="relative overflow-hidden rounded-2xl border border-[var(--border-default)] bg-[var(--bg-surface)] shadow-[0_60px_140px_-40px_rgba(0,0,0,0.85),0_0_60px_-20px_rgba(212,165,116,0.18)]">
+      <div className="relative overflow-hidden rounded-2xl border border-[var(--border-default)] bg-[var(--bg-surface)] shadow-[0_60px_140px_-40px_rgba(0,0,0,0.85),0_0_60px_-20px_rgba(212,165,116,0.18)] transition-transform duration-300 ease-out hover:-translate-y-1">
         {/* Window chrome */}
         <div className="flex items-center gap-1.5 border-b border-[var(--border-subtle)] bg-[var(--bg-base)] px-4 py-3">
           <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]" />
@@ -77,16 +62,16 @@ export function HeroTerminal() {
         <div className="px-6 pt-6">
           <p className="eyebrow">Total net worth</p>
           <div className="mt-3 flex items-baseline gap-3">
-            <motion.span className="font-mono-data text-[40px] leading-none text-[var(--text-primary)] tabular md:text-[44px]">
-              {display}
-            </motion.span>
+            <span className="font-mono-data text-[40px] leading-none text-[var(--text-primary)] tabular md:text-[44px]">
+              {formatUSD(value)}
+            </span>
           </div>
           <div className="mt-2 font-mono-data text-[13px] text-[var(--gold-cream)] tabular">
             +{trend.toFixed(2)}% · trailing 12 months
           </div>
         </div>
 
-        {/* Static area chart with gold gradient */}
+        {/* Static area chart with gold gradient — same shape as PortfolioMini */}
         <div className="mt-2 px-2">
           <svg
             viewBox="0 0 800 200"
@@ -125,38 +110,28 @@ export function HeroTerminal() {
             />
 
             {/* Area fill */}
-            <motion.path
+            <path
               d="M0 152 C 90 138, 160 148, 220 168 S 290 178, 330 158 S 430 96, 510 70 S 630 38, 740 22 L 800 14 L 800 200 L 0 200 Z"
               fill="url(#hero-area)"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 1.0 }}
             />
             {/* Stroke */}
-            <motion.path
+            <path
               d="M0 152 C 90 138, 160 148, 220 168 S 290 178, 330 158 S 430 96, 510 70 S 630 38, 740 22 L 800 14"
               fill="none"
               stroke="url(#hero-stroke)"
               strokeWidth="1.8"
               strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{
-                duration: 1.6,
-                delay: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-              }}
             />
-            {/* Endpoint dot — pulsing */}
-            <motion.circle
-              cx="800"
-              cy="14"
-              r="6"
-              fill="#F5E6C8"
-              opacity="0.18"
-              animate={{ r: [6, 12, 6], opacity: [0.18, 0, 0.18] }}
-              transition={{ duration: 2.4, repeat: Number.POSITIVE_INFINITY }}
-            />
+            {/* Endpoint dot — pulses via CSS keyframe */}
+            <circle cx="800" cy="14" r="6" fill="#F5E6C8" opacity="0.18">
+              <animate attributeName="r" values="6;14;6" dur="2.4s" repeatCount="indefinite" />
+              <animate
+                attributeName="opacity"
+                values="0.18;0;0.18"
+                dur="2.4s"
+                repeatCount="indefinite"
+              />
+            </circle>
             <circle cx="800" cy="14" r="3" fill="#F5E6C8" />
           </svg>
         </div>
@@ -168,19 +143,13 @@ export function HeroTerminal() {
             { label: "Crypto", pct: "14%" },
             { label: "Real estate", pct: "18%" },
             { label: "Cash", pct: "6%" },
-          ].map((a, i) => (
-            <motion.div
-              key={a.label}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.4 + i * 0.08 }}
-              className="px-3 py-4 md:px-4"
-            >
+          ].map((a) => (
+            <div key={a.label} className="px-3 py-4 md:px-4">
               <p className="eyebrow text-[9px]">{a.label}</p>
               <div className="mt-1.5 font-mono-data text-lg text-[var(--text-primary)] tabular md:text-xl">
                 {a.pct}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -198,6 +167,6 @@ export function HeroTerminal() {
       >
         m · usd
       </div>
-    </motion.div>
+    </div>
   );
 }
