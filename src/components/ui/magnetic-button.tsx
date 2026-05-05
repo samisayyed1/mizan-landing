@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { type MouseEvent, type ReactNode, useRef } from "react";
-import { MAGNETIC_SPRING_OPTS_OPTS } from "@/lib/motion";
+import { MAGNETIC_SPRING_OPTS } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "ghost";
