@@ -88,7 +88,7 @@ export const founderCopy = {
     "Mizan keeps every position on the device you own. Connections to brokers are read-only and end-to-end encrypted. We never see your portfolio. We literally cannot.",
     "Wealth, properly managed, is not a feature set. It is a discipline — quiet, patient, generational. Mizan is the instrument.",
   ] as const,
-  signature: "— Sami Sayyed, Founder",
+  signature: "— Founder",
 } as const;
 
 export const securityCopy = {

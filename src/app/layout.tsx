@@ -17,8 +17,6 @@ export const metadata: Metadata = {
   },
   description,
   applicationName: "Mizan",
-  authors: [{ name: "Sami Sayyed" }],
-  creator: "Sami Sayyed",
   publisher: "Mizan, Ltd.",
   keywords: [
     "private portfolio terminal",

@@ -1,5 +1,6 @@
 "use client";
 
+import { Wordmark } from "@/components/brand/wordmark";
 import { brand } from "@/content/copy";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -49,35 +50,24 @@ export function Nav() {
         style={{ opacity: blurOpacity }}
         className="absolute inset-0 -z-10 bg-[rgba(10,11,16,0.72)] backdrop-blur-[12px]"
       />
-      <div className="mx-auto flex h-16 max-w-[var(--container-default)] items-center justify-between px-6 md:px-10">
-        <Link
-          href="/"
-          aria-label={`${brand.name} home`}
-          className="group inline-flex items-center gap-2.5"
-        >
-          <span
-            aria-hidden
-            className="font-display text-[20px] leading-none text-[var(--gold-cream)] transition-colors duration-150 group-hover:text-[var(--gold-primary)]"
-            style={{
-              fontVariationSettings: "'opsz' 144, 'wght' 500, 'SOFT' 30, 'WONK' 0",
-            }}
-          >
-            M
-          </span>
-          <span className="font-display text-[17px] tracking-tight text-[var(--text-primary)]">
-            {brand.name}
-          </span>
+      <div className="mx-auto flex h-20 max-w-[var(--container-default)] items-center justify-between px-6 md:px-10">
+        <Link href="/" aria-label={`${brand.name} home`}>
+          <Wordmark size="md" />
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-9">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-sm tracking-tight text-[var(--text-muted)] transition-colors duration-150 hover:text-[var(--gold-cream)]"
+                  className="group relative inline-flex items-center text-[13px] tracking-tight text-[var(--text-muted)] transition-colors duration-150 hover:text-[var(--gold-cream)]"
                 >
                   {l.label}
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-1.5 left-0 h-px w-0 bg-[var(--gold-primary)] transition-all duration-200 group-hover:w-full"
+                  />
                 </Link>
               </li>
             ))}
@@ -87,9 +77,13 @@ export function Nav() {
         <div className="hidden items-center gap-4 md:flex">
           <Link
             href="/contact"
-            className="rounded-md bg-[var(--gold-primary)] px-4 py-2 text-xs font-medium tracking-tight text-[var(--bg-base)] transition-colors duration-150 hover:bg-[var(--gold-cream)]"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-[var(--gold-primary)] px-5 py-2.5 text-xs font-medium tracking-tight text-[var(--bg-base)] transition-all duration-200 hover:bg-[var(--gold-cream)] hover:shadow-[0_8px_24px_-8px_rgba(212,165,116,0.5)]"
           >
-            Download
+            <span
+              aria-hidden
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+            />
+            <span className="relative">Download</span>
           </Link>
         </div>
 
@@ -103,8 +97,8 @@ export function Nav() {
         >
           <svg
             viewBox="0 0 16 16"
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             stroke="currentColor"
             strokeWidth="1.5"
             fill="none"

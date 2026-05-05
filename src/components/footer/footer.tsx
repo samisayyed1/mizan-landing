@@ -1,10 +1,10 @@
+import { Wordmark } from "@/components/brand/wordmark";
 import { brand, footerCopy } from "@/content/copy";
 import Link from "next/link";
 import { StatusIndicator } from "./status-indicator";
 
 /**
  * Minimal four-column footer. No repo links. No upstream attribution.
- * Every removed link from the previous design lands here as a clean slate.
  */
 export function Footer() {
   return (
@@ -18,18 +18,10 @@ export function Footer() {
       <div className="mx-auto max-w-[var(--container-default)] px-6 py-20 md:px-10">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-12">
           <div className="col-span-2 md:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-2.5">
-              <span
-                aria-hidden
-                className="font-display text-[20px] leading-none text-[var(--gold-cream)]"
-              >
-                M
-              </span>
-              <span className="font-display text-[17px] tracking-tight text-[var(--text-primary)]">
-                {brand.name}
-              </span>
+            <Link href="/" className="inline-block">
+              <Wordmark size="lg" />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-[var(--text-muted)]">
               {footerCopy.tagline}
             </p>
             <div className="mt-6">

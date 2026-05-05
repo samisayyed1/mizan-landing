@@ -218,6 +218,118 @@ body {
   animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
+/* Ambient gold blobs — slow orbital drift behind hero */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -28px, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-24px, 36px, 0) scale(0.96);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-44px, 32px, 0) scale(1.08);
+  }
+}
+
+@keyframes drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(36px, -18px, 0) scale(1.04);
+    opacity: 0.85;
+  }
+}
+
+.ambient-drift-a {
+  animation: drift-a 28s ease-in-out infinite;
+}
+.ambient-drift-b {
+  animation: drift-b 34s ease-in-out infinite;
+}
+.ambient-drift-c {
+  animation: drift-c 22s ease-in-out infinite;
+}
+
+/* Particle drift — small gold motes */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Hero accent line — draws across on load */
+@keyframes accent-line-draw {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.accent-line {
+  animation: accent-line-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+/* Subtle ticker — for the hero number */
+@keyframes ticker-tick {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* Premium gold-text gradient */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f5e6c8 0%, #d4a574 35%, #f5e6c8 70%, #d4a574 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Soft glow — for premium accents */
+.text-glow-gold {
+  text-shadow: 0 0 24px rgba(212, 165, 116, 0.15), 0 0 60px rgba(212, 165, 116, 0.08);
+}
+
 /* Reduced motion contract — universal honor */
 @media (prefers-reduced-motion: reduce) {
   *,
