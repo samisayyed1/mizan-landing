@@ -6,7 +6,7 @@ import { AmbientGold } from "./ambient-gold";
 import { BalanceScale } from "./balance-scale";
 import { Crosshairs } from "./crosshairs";
 import { GridGuides } from "./grid-guides";
-import { HeroTerminal } from "./hero-terminal";
+import { HeroCompass } from "./hero-compass";
 import { ScrollCue } from "./scroll-cue";
 import { TrustStrip } from "./trust-strip";
 
@@ -101,7 +101,7 @@ export function Hero() {
             </div>
 
             <div className="hero-tilt-in delay-4">
-              <HeroTerminal />
+              <HeroCompass />
             </div>
           </div>
         </div>
