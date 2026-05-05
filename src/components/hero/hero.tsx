@@ -1,7 +1,7 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { heroCopy } from "@/content/copy";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { BalanceScale } from "./balance-scale";
 import { Crosshairs } from "./crosshairs";
 import { GridGuides } from "./grid-guides";
@@ -23,11 +23,7 @@ export function Hero() {
   const [line1, line2, line3] = heroCopy.headline;
 
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden"
-    >
+    <section id="hero" aria-labelledby="hero-heading" className="relative isolate overflow-hidden">
       {/* Radial gold-cream bloom (server-rendered, masked behind headline) */}
       <div
         aria-hidden
@@ -60,9 +56,7 @@ export function Hero() {
               }}
             >
               <span className="block">{line1}</span>
-              <span className="block italic text-[var(--gold-cream)]">
-                {line2}
-              </span>
+              <span className="block italic text-[var(--gold-cream)]">{line2}</span>
               <span className="block">{line3}</span>
             </h1>
 

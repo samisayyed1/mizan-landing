@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { pricingCopy } from "@/content/copy";
+import { motion } from "framer-motion";
 
 type Props = {
   annual: boolean;

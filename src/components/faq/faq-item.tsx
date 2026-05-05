@@ -1,8 +1,8 @@
 "use client";
 
+import type { FaqItem as FaqItemType } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import type { FaqItem as FaqItemType } from "@/types";
 
 /**
  * Custom 1.5px-stroke plus/minus glyph (Phosphor-equivalent).

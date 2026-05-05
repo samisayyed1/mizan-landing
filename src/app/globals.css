@@ -20,12 +20,9 @@
   --color-border: rgba(245, 230, 200, 0.08);
   --color-border-strong: rgba(245, 230, 200, 0.14);
 
-  --font-sans:
-    var(--font-geist), system-ui, -apple-system, "Helvetica Neue", sans-serif;
-  --font-display:
-    var(--font-fraunces), "GT Sectra", "Tiempos Headline", Georgia, serif;
-  --font-mono:
-    var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-sans: var(--font-geist), system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-display: var(--font-fraunces), "GT Sectra", "Tiempos Headline", Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
 
   --container-readable: 640px;
   --container-default: 1280px;
@@ -84,11 +81,7 @@ body {
   .font-display {
     font-family: var(--font-display);
     font-feature-settings: "ss01", "calt", "liga";
-    font-variation-settings:
-      "opsz" 144,
-      "wght" 400,
-      "SOFT" 30,
-      "WONK" 0;
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 30, "WONK" 0;
     font-optical-sizing: auto;
     letter-spacing: -0.025em;
   }
@@ -96,11 +89,7 @@ body {
   .font-display-h2 {
     font-family: var(--font-display);
     font-feature-settings: "ss01", "calt", "liga";
-    font-variation-settings:
-      "opsz" 72,
-      "wght" 500,
-      "SOFT" 50,
-      "WONK" 0;
+    font-variation-settings: "opsz" 72, "wght" 500, "SOFT" 50, "WONK" 0;
     font-optical-sizing: auto;
     letter-spacing: -0.02em;
   }
@@ -108,11 +97,7 @@ body {
   /* Editorial body serif — small optical size for readable long-form */
   .font-editorial {
     font-family: var(--font-display);
-    font-variation-settings:
-      "opsz" 9,
-      "wght" 400,
-      "SOFT" 30,
-      "WONK" 0;
+    font-variation-settings: "opsz" 9, "wght" 400, "SOFT" 30, "WONK" 0;
     font-optical-sizing: auto;
     font-feature-settings: "kern", "liga", "calt";
   }

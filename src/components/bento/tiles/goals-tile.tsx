@@ -19,14 +19,10 @@ export function GoalsTile({ className }: { className?: string }) {
         <div className="flex items-end justify-between font-mono-data text-xs">
           <div>
             <div className="eyebrow">Today</div>
-            <div className="mt-1 text-[var(--text-primary)] tabular">
-              $4.29M
-            </div>
+            <div className="mt-1 text-[var(--text-primary)] tabular">$4.29M</div>
           </div>
           <div className="text-right">
-            <div className="eyebrow text-[var(--gold-primary)]">
-              Goal · 2042
-            </div>
+            <div className="eyebrow text-[var(--gold-primary)]">Goal · 2042</div>
             <div className="mt-1 text-[var(--gold-cream)] tabular">$11.8M</div>
           </div>
         </div>

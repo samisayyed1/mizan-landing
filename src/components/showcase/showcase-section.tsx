@@ -1,9 +1,9 @@
 "use client";
 
+import { showcaseCopy } from "@/content/copy";
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { showcaseCopy } from "@/content/copy";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
 import { PortfolioMini } from "./portfolio-mini";
 
 /**

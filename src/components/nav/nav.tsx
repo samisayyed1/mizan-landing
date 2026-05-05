@@ -1,10 +1,10 @@
 "use client";
 
+import { brand } from "@/content/copy";
+import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { brand } from "@/content/copy";
-import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/#features", label: "Product" },
@@ -59,8 +59,7 @@ export function Nav() {
             aria-hidden
             className="font-display text-[20px] leading-none text-[var(--gold-cream)] transition-colors duration-150 group-hover:text-[var(--gold-primary)]"
             style={{
-              fontVariationSettings:
-                "'opsz' 144, 'wght' 500, 'SOFT' 30, 'WONK' 0",
+              fontVariationSettings: "'opsz' 144, 'wght' 500, 'SOFT' 30, 'WONK' 0",
             }}
           >
             M

@@ -87,16 +87,14 @@ export function AssistantTile({ className }: { className?: string }) {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="mt-3 flex flex-wrap gap-2"
             >
-              {["AAPL · 12%", "NVDA · 9%", "MSFT · 7%", "VOO · 28% tech"].map(
-                (cite) => (
-                  <span
-                    key={cite}
-                    className="rounded-full border border-[var(--border-default)] bg-[var(--bg-base)] px-2.5 py-1 font-mono-data text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]"
-                  >
-                    {cite}
-                  </span>
-                ),
-              )}
+              {["AAPL · 12%", "NVDA · 9%", "MSFT · 7%", "VOO · 28% tech"].map((cite) => (
+                <span
+                  key={cite}
+                  className="rounded-full border border-[var(--border-default)] bg-[var(--bg-base)] px-2.5 py-1 font-mono-data text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]"
+                >
+                  {cite}
+                </span>
+              ))}
             </motion.div>
           ) : null}
         </motion.div>

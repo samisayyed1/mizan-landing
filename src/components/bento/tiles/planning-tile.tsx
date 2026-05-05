@@ -45,14 +45,7 @@ export function PlanningTile({ className }: { className?: string }) {
           <div className="flex flex-col items-center gap-3">
             <p className="eyebrow">Current</p>
             <svg viewBox="0 0 80 80" className="h-24 w-24" aria-hidden>
-              <circle
-                cx="40"
-                cy="40"
-                r="36"
-                fill="none"
-                stroke="var(--bg-base)"
-                strokeWidth="6"
-              />
+              <circle cx="40" cy="40" r="36" fill="none" stroke="var(--bg-base)" strokeWidth="6" />
               {current.map((s, i) => (
                 <motion.circle
                   // biome-ignore lint/suspicious/noArrayIndexKey: stable order
@@ -77,14 +70,7 @@ export function PlanningTile({ className }: { className?: string }) {
           <div className="flex flex-col items-center gap-3">
             <p className="eyebrow text-[var(--gold-primary)]">Target</p>
             <svg viewBox="0 0 80 80" className="h-24 w-24" aria-hidden>
-              <circle
-                cx="40"
-                cy="40"
-                r="36"
-                fill="none"
-                stroke="var(--bg-base)"
-                strokeWidth="6"
-              />
+              <circle cx="40" cy="40" r="36" fill="none" stroke="var(--bg-base)" strokeWidth="6" />
               {target.map((s, i) => (
                 <motion.circle
                   // biome-ignore lint/suspicious/noArrayIndexKey: stable order

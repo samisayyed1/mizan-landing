@@ -1,9 +1,9 @@
 "use client";
 
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 type Props = {
   eyebrow?: string;
@@ -18,14 +18,7 @@ type Props = {
  * Bento tile shell. 1px border, surface bg, 20px radius, 3% noise overlay,
  * gold-deep border tint on hover. No scale, no shadow — restraint.
  */
-export function BentoTile({
-  eyebrow,
-  title,
-  body,
-  children,
-  className,
-  delay = 0,
-}: Props) {
+export function BentoTile({ eyebrow, title, body, children, className, delay = 0 }: Props) {
   return (
     <motion.article
       initial="hidden"
@@ -44,9 +37,7 @@ export function BentoTile({
           {title}
         </h3>
         {body ? (
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--text-muted)]">
-            {body}
-          </p>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-[var(--text-muted)]">{body}</p>
         ) : null}
       </header>
 

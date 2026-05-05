@@ -1,11 +1,6 @@
 export function PerformanceChartFallback() {
   return (
-    <svg
-      viewBox="0 0 600 176"
-      className="h-full w-full"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
+    <svg viewBox="0 0 600 176" className="h-full w-full" preserveAspectRatio="none" aria-hidden>
       <defs>
         <linearGradient id="perf-mizan-fb" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#D4A574" stopOpacity="0.28" />

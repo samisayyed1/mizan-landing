@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { statsCopy } from "@/content/copy";
-import { fadeUp, stagger, VIEWPORT_DEFAULT } from "@/lib/motion";
+import { VIEWPORT_DEFAULT, fadeUp, stagger } from "@/lib/motion";
+import { motion } from "framer-motion";
 
 const labelMap: Record<string, string> = {
   "Assets tracked": "Assets tracked",
@@ -33,11 +33,7 @@ export function StatsStrip() {
         className="mx-auto grid max-w-[var(--container-default)] grid-cols-2 divide-[var(--border-subtle)] md:grid-cols-4 md:divide-x"
       >
         {statsCopy.metrics.map((m) => (
-          <motion.div
-            key={m.label}
-            variants={fadeUp}
-            className="px-6 py-10 md:px-10 md:py-12"
-          >
+          <motion.div key={m.label} variants={fadeUp} className="px-6 py-10 md:px-10 md:py-12">
             <div className="font-mono-data text-3xl text-[var(--text-primary)] md:text-4xl">
               <CountUp
                 value={m.value}

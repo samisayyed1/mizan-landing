@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { bentoCopy } from "@/content/copy";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
+import { motion } from "framer-motion";
 import { AssistantTile } from "./tiles/assistant-tile";
 import { CurrencyTile } from "./tiles/currency-tile";
 import { GoalsTile } from "./tiles/goals-tile";

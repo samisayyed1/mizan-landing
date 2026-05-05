@@ -1,11 +1,11 @@
 "use client";
 
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { finalCtaCopy } from "@/content/copy";
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { MagneticButton } from "@/components/ui/magnetic-button";
-import { finalCtaCopy } from "@/content/copy";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
 
 export function FinalCta() {
   return (
@@ -32,8 +32,7 @@ export function FinalCta() {
             style={{
               fontSize: "clamp(40px, 6vw, 88px)",
               lineHeight: 1.05,
-              fontVariationSettings:
-                "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
+              fontVariationSettings: "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
             }}
           >
             <span className="block">{finalCtaCopy.headlinePre}</span>

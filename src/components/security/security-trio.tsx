@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { securityCopy } from "@/content/copy";
-import { fadeUp, stagger, VIEWPORT_DEFAULT } from "@/lib/motion";
+import { VIEWPORT_DEFAULT, fadeUp, stagger } from "@/lib/motion";
+import { motion } from "framer-motion";
 
 /**
  * Three numbered claims (01/02/03 in gold-deep small numerals, Geist Mono).
@@ -11,11 +11,7 @@ import { fadeUp, stagger, VIEWPORT_DEFAULT } from "@/lib/motion";
  */
 export function SecurityTrio() {
   return (
-    <section
-      id="security"
-      aria-labelledby="security-heading"
-      className="relative isolate"
-    >
+    <section id="security" aria-labelledby="security-heading" className="relative isolate">
       <div className="mx-auto max-w-[var(--container-default)] px-6 py-32 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
@@ -56,9 +52,7 @@ export function SecurityTrio() {
               <h3 className="font-display-h2 mt-6 text-2xl text-[var(--text-primary)]">
                 {c.title}
               </h3>
-              <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-muted)]">
-                {c.body}
-              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-muted)]">{c.body}</p>
             </motion.li>
           ))}
         </motion.ol>

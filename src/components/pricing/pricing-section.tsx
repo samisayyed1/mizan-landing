@@ -1,11 +1,11 @@
 "use client";
 
+import { brand, pricingCopy } from "@/content/copy";
+import { VIEWPORT_DEFAULT, fadeUp, stagger } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { brand, pricingCopy } from "@/content/copy";
-import { fadeUp, stagger, VIEWPORT_DEFAULT } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 import { BillingToggle } from "./billing-toggle";
 
 /**
@@ -113,14 +113,8 @@ export function PricingSection() {
 
                 <ul className="flex-1 space-y-3 border-t border-[var(--border-subtle)] pt-6">
                   {tier.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-3 text-sm text-[var(--text-muted)]"
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-2 h-px w-3 shrink-0 bg-[var(--gold-deep)]"
-                      />
+                    <li key={f} className="flex items-start gap-3 text-sm text-[var(--text-muted)]">
+                      <span aria-hidden className="mt-2 h-px w-3 shrink-0 bg-[var(--gold-deep)]" />
                       <span>{f}</span>
                     </li>
                   ))}

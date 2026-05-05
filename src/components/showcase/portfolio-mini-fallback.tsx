@@ -5,12 +5,7 @@
  */
 export function PortfolioMiniFallback() {
   return (
-    <svg
-      viewBox="0 0 800 240"
-      className="h-[240px] w-full"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
+    <svg viewBox="0 0 800 240" className="h-[240px] w-full" preserveAspectRatio="none" aria-hidden>
       <defs>
         <linearGradient id="mizan-area-fb" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#D4A574" stopOpacity="0.22" />

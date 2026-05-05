@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Footer } from "@/components/footer/footer";
 import { Nav } from "@/components/nav/nav";
 import { brand } from "@/content/copy";
+import type { Metadata } from "next";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
@@ -23,16 +23,14 @@ export default function ContactPage() {
               style={{
                 fontSize: "clamp(40px, 5.5vw, 88px)",
                 lineHeight: 1.05,
-                fontVariationSettings:
-                  "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
+                fontVariationSettings: "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
               }}
             >
-              Get in{" "}
-              <span className="italic text-[var(--gold-cream)]">touch.</span>
+              Get in <span className="italic text-[var(--gold-cream)]">touch.</span>
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--text-muted)]">
-              Mizan is built deliberately and supported personally. The founder
-              reads every message. Most replies arrive within two business days.
+              Mizan is built deliberately and supported personally. The founder reads every message.
+              Most replies arrive within two business days.
             </p>
 
             <div className="mt-10 space-y-4 border-t border-[var(--border-subtle)] pt-8">

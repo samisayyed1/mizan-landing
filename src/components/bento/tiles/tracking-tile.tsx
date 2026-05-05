@@ -48,9 +48,7 @@ export function TrackingTile({ className }: { className?: string }) {
               <div className="font-mono-data text-xs uppercase tracking-[0.12em] text-[var(--text-primary)]">
                 {p.ticker}
               </div>
-              <div className="truncate text-[11px] text-[var(--text-muted)]">
-                {p.name}
-              </div>
+              <div className="truncate text-[11px] text-[var(--text-muted)]">{p.name}</div>
             </div>
             <div className="text-right">
               <div className="font-mono-data text-sm tabular text-[var(--text-primary)]">
@@ -58,9 +56,7 @@ export function TrackingTile({ className }: { className?: string }) {
               </div>
               <div
                 className={`font-mono-data text-[11px] tabular ${
-                  p.pl >= 0
-                    ? "text-[var(--gold-cream)]"
-                    : "text-[var(--text-muted)]"
+                  p.pl >= 0 ? "text-[var(--gold-cream)]" : "text-[var(--text-muted)]"
                 }`}
               >
                 {p.pl >= 0 ? "+" : ""}

@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { faqCopy } from "@/content/copy";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
+import { motion } from "framer-motion";
 import { FaqItem } from "./faq-item";
 
 export function FaqSection() {

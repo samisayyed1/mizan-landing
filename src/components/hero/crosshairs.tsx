@@ -4,10 +4,7 @@
  */
 export function Crosshairs() {
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 hidden md:block"
-    >
+    <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
       {/* Top-left */}
       <span className="crosshair left-8 top-24" />
       {/* Top-right */}

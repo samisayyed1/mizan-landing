@@ -1,7 +1,7 @@
-import type { Metadata, Viewport } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { fraunces, geist, geistMono } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mizan.app";
@@ -87,9 +87,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">
-        {children}
-      </body>
+      <body className="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">{children}</body>
     </html>
   );
 }

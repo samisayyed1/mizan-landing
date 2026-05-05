@@ -38,12 +38,14 @@ export function CurrencyTile({ className }: { className?: string }) {
     };
   }, []);
 
-  const c = CURRENCIES[idx]!;
-  const formatted = new Intl.NumberFormat(c.locale, {
-    style: "currency",
-    currency: c.code,
-    maximumFractionDigits: 0,
-  }).format(c.value);
+  const c = CURRENCIES[idx] ?? CURRENCIES[0];
+  const formatted = c
+    ? new Intl.NumberFormat(c.locale, {
+        style: "currency",
+        currency: c.code,
+        maximumFractionDigits: 0,
+      }).format(c.value)
+    : "";
 
   return (
     <BentoTile
@@ -76,16 +78,12 @@ export function CurrencyTile({ className }: { className?: string }) {
               <span
                 aria-hidden
                 className={`h-1 w-1 rounded-full transition-colors duration-300 ${
-                  i === idx
-                    ? "bg-[var(--gold-primary)]"
-                    : "bg-[var(--text-subtle)]"
+                  i === idx ? "bg-[var(--gold-primary)]" : "bg-[var(--text-subtle)]"
                 }`}
               />
               <span
                 className={`font-mono-data text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${
-                  i === idx
-                    ? "text-[var(--gold-cream)]"
-                    : "text-[var(--text-subtle)]"
+                  i === idx ? "text-[var(--gold-cream)]" : "text-[var(--text-subtle)]"
                 }`}
               >
                 {cc.code}

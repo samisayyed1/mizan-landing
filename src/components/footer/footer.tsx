@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { brand, footerCopy } from "@/content/copy";
+import Link from "next/link";
 import { StatusIndicator } from "./status-indicator";
 
 /**

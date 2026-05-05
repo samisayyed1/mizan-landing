@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { founderCopy } from "@/content/copy";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
+import { motion } from "framer-motion";
 
 /**
  * Editorial founder letter. Single column, 600px max, ~280 words.
@@ -33,9 +33,7 @@ export function FounderLetter() {
           variants={fadeUp}
           className="mx-auto max-w-[640px]"
         >
-          <p className="eyebrow text-center md:text-left">
-            {founderCopy.eyebrow}
-          </p>
+          <p className="eyebrow text-center md:text-left">{founderCopy.eyebrow}</p>
 
           <h2 id="founder-heading" className="sr-only">
             A letter from the founder
@@ -46,8 +44,7 @@ export function FounderLetter() {
             <span
               className="font-display float-left mr-3 mt-1 text-[88px] leading-[0.8] text-[var(--gold-cream)] md:text-[112px]"
               style={{
-                fontVariationSettings:
-                  "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
+                fontVariationSettings: "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
               }}
               aria-hidden
             >

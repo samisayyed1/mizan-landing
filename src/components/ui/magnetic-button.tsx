@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { type MouseEvent, type ReactNode, useRef } from "react";
 import { MAGNETIC_SPRING_OPTS } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { type MouseEvent, type ReactNode, useRef } from "react";
 
 type Variant = "primary" | "ghost";
 
@@ -63,9 +63,7 @@ export function MagneticButton({
     y.set(0);
   };
 
-  const linkProps = external
-    ? { target: "_blank", rel: "noopener noreferrer" as const }
-    : {};
+  const linkProps = external ? { target: "_blank", rel: "noopener noreferrer" as const } : {};
 
   return (
     <motion.a

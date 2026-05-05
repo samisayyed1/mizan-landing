@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useReducedMotionPref } from "@/lib/use-reduced-motion";
+import { motion } from "framer-motion";
 
 /**
  * Hand-drawn balance scale (mizan = balance, in Arabic). 1.5px stroke

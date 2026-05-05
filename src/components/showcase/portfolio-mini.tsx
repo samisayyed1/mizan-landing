@@ -1,8 +1,8 @@
 "use client";
 
+import { VIEWPORT_DEFAULT, fadeUp } from "@/lib/motion";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { fadeUp, VIEWPORT_DEFAULT } from "@/lib/motion";
 import { PortfolioMiniFallback } from "./portfolio-mini-fallback";
 
 const PortfolioMiniChart = dynamic(() => import("./portfolio-mini-chart"), {
@@ -77,18 +77,9 @@ export function PortfolioMini({ framed = true, className }: Props) {
     >
       {framed ? (
         <div className="flex items-center gap-1.5 border-b border-[var(--border-subtle)] bg-[var(--bg-base)] px-4 py-3">
-          <span
-            aria-hidden
-            className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]"
-          />
-          <span
-            aria-hidden
-            className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]"
-          />
-          <span
-            aria-hidden
-            className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]"
-          />
+          <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]" />
+          <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]" />
+          <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-[var(--bg-overlay)]" />
           <span className="ml-3 font-mono-data text-[10px] tracking-[0.18em] text-[var(--text-subtle)] uppercase">
             mizan · overview
           </span>
@@ -138,9 +129,7 @@ export function PortfolioMini({ framed = true, className }: Props) {
         {ALLOCATION.map((a) => (
           <div key={a.label} className="px-6 py-5">
             <p className="eyebrow">{a.label}</p>
-            <div className="mt-2 font-mono-data text-2xl text-[var(--text-primary)]">
-              {a.pct}%
-            </div>
+            <div className="mt-2 font-mono-data text-2xl text-[var(--text-primary)]">{a.pct}%</div>
           </div>
         ))}
       </div>

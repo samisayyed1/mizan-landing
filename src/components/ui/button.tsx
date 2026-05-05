@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "ghost" | "tertiary";
 
@@ -49,13 +49,7 @@ export function Button({
 
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes}
-        {...rest}
-      >
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...rest}>
         {children}
         {arrow}
       </a>

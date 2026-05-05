@@ -1,6 +1,6 @@
+import { kv, kvConfigured } from "@/lib/kv";
 import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { kv, kvConfigured } from "@/lib/kv";
 
 export const runtime = "edge";
 
@@ -39,26 +39,17 @@ export async function POST(req: NextRequest) {
   try {
     json = await req.json();
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Invalid request." },
-      { status: 400 },
-    );
+    return NextResponse.json({ ok: false, error: "Invalid request." }, { status: 400 });
   }
 
   const parsed = Body.safeParse(json);
   if (!parsed.success) {
-    return NextResponse.json(
-      { ok: false, error: "Invalid input." },
-      { status: 400 },
-    );
+    return NextResponse.json({ ok: false, error: "Invalid input." }, { status: 400 });
   }
 
   const ip = clientIp(req);
   if (!checkRate(ip)) {
-    return NextResponse.json(
-      { ok: false, error: "Too many requests." },
-      { status: 429 },
-    );
+    return NextResponse.json({ ok: false, error: "Too many requests." }, { status: 429 });
   }
 
   if (!kvConfigured) {
@@ -75,9 +66,6 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json({ ok: true });
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Storage error." },
-      { status: 500 },
-    );
+    return NextResponse.json({ ok: false, error: "Storage error." }, { status: 500 });
   }
 }

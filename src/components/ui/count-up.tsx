@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { useEffect, useRef } from "react";
 import { COUNTUP_SPRING_OPTS } from "@/lib/motion";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 type Format = "money" | "int";
 
@@ -34,13 +28,7 @@ function formatValue(n: number, format: Format): string {
  * Animated number counter. useInView + useSpring(60, 20) per the brief.
  * Geist Mono with tabular-nums via the parent's font class.
  */
-export function CountUp({
-  value,
-  prefix,
-  suffix,
-  format = "int",
-  className,
-}: Props) {
+export function CountUp({ value, prefix, suffix, format = "int", className }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const target = useMotionValue(0);
