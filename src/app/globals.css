@@ -406,6 +406,16 @@ body {
   }
 }
 
+/* Mizan Command — ticker tape scroll */
+@keyframes tape-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Subtle ticker — for the hero number */
 @keyframes ticker-tick {
   0%,

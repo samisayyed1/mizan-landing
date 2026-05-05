@@ -3,10 +3,9 @@ import { heroCopy } from "@/content/copy";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AmbientGold } from "./ambient-gold";
-import { BalanceScale } from "./balance-scale";
 import { Crosshairs } from "./crosshairs";
 import { GridGuides } from "./grid-guides";
-import { HeroCompass } from "./hero-compass";
+import { HeroTerminal } from "./hero-terminal";
 import { ScrollCue } from "./scroll-cue";
 import { TrustStrip } from "./trust-strip";
 
@@ -90,18 +89,10 @@ export function Hero() {
             <TrustStrip />
           </div>
 
-          {/* Terminal preview column */}
+          {/* Terminal column */}
           <div className="relative lg:col-span-5">
-            {/* Large decorative balance scale behind the terminal */}
-            <div
-              aria-hidden
-              className="hero-fade delay-3 pointer-events-none absolute -top-16 -right-12 -z-10 hidden text-[var(--gold-deep)] opacity-40 lg:block xl:-right-16"
-            >
-              <BalanceScale className="h-[260px] w-[260px] xl:h-[320px] xl:w-[320px]" />
-            </div>
-
             <div className="hero-tilt-in delay-4">
-              <HeroCompass />
+              <HeroTerminal />
             </div>
           </div>
         </div>

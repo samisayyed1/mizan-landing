@@ -27,10 +27,7 @@ const ALLOC = [
 
 function polar(angleDeg: number, radius: number) {
   const a = ((angleDeg - 90) * Math.PI) / 180;
-  return [
-    CENTER + radius * Math.cos(a),
-    CENTER + radius * Math.sin(a),
-  ] as const;
+  return [CENTER + radius * Math.cos(a), CENTER + radius * Math.sin(a)] as const;
 }
 
 /** SVG arc path between two angles, in degrees, going clockwise. */
@@ -125,13 +122,7 @@ export function HeroCompass() {
             <stop offset="0%" stopColor="#1B1E28" />
             <stop offset="100%" stopColor="#0A0B10" />
           </radialGradient>
-          <filter
-            id="compass-glow"
-            x="-20%"
-            y="-20%"
-            width="140%"
-            height="140%"
-          >
+          <filter id="compass-glow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="3" />
           </filter>
         </defs>
@@ -151,10 +142,7 @@ export function HeroCompass() {
           const angle = i * 30;
           const long = i % 3 === 0;
           const [x1, y1] = polar(angle, R_TICK_OUTER);
-          const [x2, y2] = polar(
-            angle,
-            long ? R_TICK_INNER_LONG : R_TICK_INNER_SHORT,
-          );
+          const [x2, y2] = polar(angle, long ? R_TICK_INNER_LONG : R_TICK_INNER_SHORT);
           return (
             <line
               // biome-ignore lint/suspicious/noArrayIndexKey: static
@@ -216,8 +204,7 @@ export function HeroCompass() {
             filter: "drop-shadow(0 0 6px rgba(212,165,116,0.4))",
             strokeDasharray: 1400,
             strokeDashoffset: 1400,
-            animation:
-              "compass-arc-draw 1.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards",
+            animation: "compass-arc-draw 1.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards",
           }}
         />
 
@@ -232,12 +219,7 @@ export function HeroCompass() {
               }}
             >
               <circle cx={x} cy={y} r="8" fill="#F5E6C8" opacity="0.18">
-                <animate
-                  attributeName="r"
-                  values="8;14;8"
-                  dur="2.6s"
-                  repeatCount="indefinite"
-                />
+                <animate attributeName="r" values="8;14;8" dur="2.6s" repeatCount="indefinite" />
                 <animate
                   attributeName="opacity"
                   values="0.18;0;0.18"
@@ -380,12 +362,7 @@ export function HeroCompass() {
           }}
         >
           <circle cx={CENTER} cy={28} r="2.5" fill="#F5E6C8">
-            <animate
-              attributeName="opacity"
-              values="1;0.4;1"
-              dur="2.2s"
-              repeatCount="indefinite"
-            />
+            <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" repeatCount="indefinite" />
           </circle>
           <text
             x={CENTER + 10}
@@ -432,9 +409,7 @@ export function HeroCompass() {
               style={{ background: a.color, opacity: a.opacity }}
             />
             <span className="text-[var(--text-muted)]">{a.label}</span>
-            <span className="ml-auto tabular text-[var(--text-primary)]">
-              {a.pct}%
-            </span>
+            <span className="ml-auto tabular text-[var(--text-primary)]">{a.pct}%</span>
           </li>
         ))}
       </ul>
