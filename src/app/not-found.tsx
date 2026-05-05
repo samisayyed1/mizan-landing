@@ -4,13 +4,11 @@ export default function NotFound() {
   return (
     <main className="flex min-h-[100svh] items-center justify-center px-6">
       <div className="text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--gold-primary)]">
-          404
-        </p>
-        <h1 className="mt-4 font-serif text-5xl font-light tracking-[-0.02em] text-[var(--text-primary)]">
+        <p className="eyebrow">404</p>
+        <h1 className="font-display mt-6 text-5xl text-[var(--text-primary)]">
           Off the chart.
         </h1>
-        <p className="mt-4 text-base text-[var(--text-secondary)]">
+        <p className="mt-4 text-[var(--text-muted)]">
           That page isn't part of the portfolio.
         </p>
         <Link

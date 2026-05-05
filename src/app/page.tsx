@@ -1,31 +1,21 @@
-import { ConnectSection } from "@/components/connect/connect-section";
-import { FaqSection } from "@/components/faq/faq-section";
-import { FeaturesSection } from "@/components/features/features-section";
-import { FinalCta } from "@/components/final-cta";
-import { Footer } from "@/components/footer/footer";
-import { Hero } from "@/components/hero/hero";
-import { HowItWorks } from "@/components/how-it-works/how-it-works";
-import { Nav } from "@/components/nav/nav";
-import { PrivacyManifesto } from "@/components/privacy/privacy-manifesto";
-import { ProductShot } from "@/components/product-shot/product-shot";
-import { Testimonials } from "@/components/trust/testimonials";
-
+/**
+ * Landing page — composed of editorial sections built progressively in the
+ * `feat/landing-overhaul` branch. Foundation commit ships an intentional
+ * stub; subsequent commits replace this with hero, stats, showcase, bento,
+ * founder letter, security, pricing, FAQ, final CTA, footer.
+ */
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main id="main">
-        <Hero />
-        <ProductShot />
-        <FeaturesSection />
-        <ConnectSection />
-        <HowItWorks />
-        <PrivacyManifesto />
-        <Testimonials />
-        <FaqSection />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
+    <main className="flex min-h-[100svh] items-center justify-center px-6">
+      <div className="text-center">
+        <p className="eyebrow">Foundation</p>
+        <h1 className="font-display mt-6 text-5xl text-[var(--text-primary)]">
+          Mizan
+        </h1>
+        <p className="mt-4 max-w-md text-[var(--text-muted)]">
+          A private portfolio terminal. The page rebuild is in progress.
+        </p>
+      </div>
+    </main>
   );
 }

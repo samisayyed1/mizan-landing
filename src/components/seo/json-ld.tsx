@@ -1,12 +1,15 @@
 import { brand } from "@/content/copy";
 
+/**
+ * SoftwareApplication schema. No upstream attribution. No repo links.
+ */
 export function JsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: brand.name,
     description:
-      "The portfolio tracker for serious investors. Local-first. End-to-end encrypted. Open source.",
+      "A private portfolio terminal for investors who actually own their capital. Stewardship over speculation. Restraint over noise.",
     applicationCategory: "FinanceApplication",
     operatingSystem: "macOS, Windows, Linux",
     offers: {
@@ -15,17 +18,11 @@ export function JsonLd() {
       priceCurrency: "USD",
     },
     url: `https://${brand.domain}`,
-    sameAs: [brand.desktopRepoUrl, brand.connectRepoUrl],
-    author: {
-      "@type": "Person",
-      name: "Sami Sayyed",
-    },
-    license: "https://www.gnu.org/licenses/agpl-3.0.html",
   };
   return (
     <script
       type="application/ld+json"
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: Standard pattern for JSON-LD.
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Standard JSON-LD pattern.
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );

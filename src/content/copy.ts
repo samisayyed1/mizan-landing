@@ -1,146 +1,258 @@
-/** Centralized marketing copy. Never inline strings in components. */
+/**
+ * Mizan copy — single source of truth. Never inline strings in components.
+ * Words on the ban list never appear here.
+ */
 
 export const brand = {
   name: "Mizan",
   tagline: "Wealth, in balance.",
-  meaning: "Mizan means balance, in Arabic.",
   domain: "mizan.app",
-  desktopRepoUrl: "https://github.com/samisayyed1/mizan-4",
-  connectRepoUrl: "https://github.com/samisayyed1/mizan-connect",
-  releasesUrl: "https://github.com/samisayyed1/mizan-4/releases/latest",
+  contactEmail: "hello@mizan.app",
 } as const;
 
 export const heroCopy = {
-  badge: "Mizan Connect — now in beta",
-  headline: "Wealth, in balance.",
+  eyebrow: "A private portfolio terminal",
+  /** Three lines. Middle line italic, gold-cream. */
+  headline: ["Wealth,", "in", "balance."] as const,
   subhead:
-    "The portfolio tracker for serious investors. Your data lives on your device, not our servers. Connect optional, encryption mandatory.",
+    "A private portfolio terminal for investors who actually own their capital. Stewardship over speculation. Restraint over noise.",
   primaryCta: "Download Mizan",
-  secondaryCta: "See Mizan Connect",
-  trustStrip: ["Local-first", "End-to-end encrypted", "Open source", "No tracking"] as const,
+  tertiaryCta: "Read the founder letter",
+} as const;
+
+export const statsCopy = {
+  /**
+   * Placeholder values. Replace with real metrics before launch.
+   * Per brand guidelines: no fabricated numbers.
+   */
   metrics: [
     {
       label: "Assets tracked",
-      value: 2_400_000_000,
+      value: 1,
       prefix: "$",
       suffix: "+",
       format: "money" as const,
     },
-    {
-      label: "Brokers supported",
-      value: 30,
-      suffix: "+",
-      format: "int" as const,
-    },
-    { label: "Servers see your data", value: 0, format: "int" as const },
-    {
-      label: "GitHub stars",
-      value: 7_100,
-      suffix: "★",
-      format: "int" as const,
-    },
+    { label: "Portfolios under track", value: 1, format: "int" as const },
+    { label: "Brokers supported", value: 1, format: "int" as const },
+    { label: "Currencies supported", value: 30, format: "int" as const },
   ],
 } as const;
 
-export const productShotCopy = {
-  eyebrow: "The application",
-  title: "A terminal for serious capital.",
-  body: "Built on Wealthfolio's open foundation. Refined for the way real portfolios work — across accounts, currencies, and asset classes.",
+export const showcaseCopy = {
+  eyebrow: "The instrument",
+  title: "Every position. Every currency. One unified view.",
+  subtitle:
+    "Mizan tracks every account you own — equities, crypto, real estate, private equity, alternatives — through a single ledger that lives on your device.",
 } as const;
 
-export const featuresCopy = {
+export const bentoCopy = {
   eyebrow: "What's inside",
-  title: "Precision engineering for your capital.",
+  title: "Precision instruments for serious capital.",
   subtitle:
-    "Everything required to orchestrate a sophisticated portfolio, in a calm and uncluttered environment.",
+    "Six modules. One ledger. Every decision routed through the analytics that institutions use, refined for individuals who do their own work.",
+  modules: {
+    performance: {
+      title: "Performance Intelligence",
+      body: "Time-weighted returns, money-weighted returns, drawdowns, and allocation drift. The numbers institutions actually use, on a portfolio you actually own.",
+    },
+    planning: {
+      title: "Portfolio Planning",
+      body: "Rebalancing scenarios. Target allocation modeling. Drift alerts before they become drift problems.",
+    },
+    tracking: {
+      title: "Asset Tracking",
+      body: "Equities, crypto, real estate, private equity, pre-IPO. One ledger across every custodian.",
+    },
+    goals: {
+      title: "Goals & Retirement",
+      body: "Withdrawal modeling. FIRE projections. Scenario testing against the only benchmark that matters: yours.",
+    },
+    currency: {
+      title: "Multi-currency",
+      body: "Native global support. Real-time FX. Cost basis preserved across conversions.",
+    },
+    assistant: {
+      title: "Portfolio Assistant",
+      body: "Ask in plain language. Reasoned answers, cited to the positions and ratios that drive them. Local model option keeps everything on-device.",
+    },
+  },
 } as const;
 
-export const connectCopy = {
-  eyebrow: "Mizan Connect",
-  title: "Sync your brokers. Keep your privacy.",
-  subtitle:
-    "An optional encrypted bridge between your brokers and your local Mizan vault. Your credentials never touch our servers — Connect uses SnapTrade's regulated infrastructure to read positions, then forwards them to your device end-to-end encrypted.",
-  cta: "Join the waitlist",
-  comingSoon: "Coming soon",
-  pricingNote: "Founding-member pricing for the first 1,000 subscribers.",
-  diagramNodes: ["Your device", "Mizan Connect", "SnapTrade", "Brokers"] as const,
+export const founderCopy = {
+  eyebrow: "A letter from the founder",
+  /** ~280 words. Patek tone. Quiet, generational, confident. */
+  paragraphs: [
+    "Most fintech is built on the assumption you'll trade your data for the product. Mizan rejects that bargain. We believe a tool meant to help you understand your wealth should never need to look at it.",
+    "I built Mizan because I needed it. Tracking nine custodians across three jurisdictions, watching positions slip out of sight in spreadsheets, paying advisors to tell me what I already knew — none of it worked. Every product I tried demanded I pour my full financial life into someone else's database. The discipline I wanted in my portfolio was undone by the carelessness of the tools.",
+    "Mizan keeps every position on the device you own. Connections to brokers are read-only and end-to-end encrypted. We never see your portfolio. We literally cannot.",
+    "Wealth, properly managed, is not a feature set. It is a discipline — quiet, patient, generational. Mizan is the instrument.",
+  ] as const,
+  signature: "— Sami Sayyed, Founder",
 } as const;
 
-export const howItWorksCopy = {
-  eyebrow: "Three steps",
-  title: "Set up in under five minutes.",
-  steps: [
+export const securityCopy = {
+  eyebrow: "How we're built",
+  title: "Discretion is the product.",
+  claims: [
     {
       n: "01",
-      title: "Download",
-      body: "Install Mizan on macOS, Windows, or Linux. Free and open source under AGPL-3.0.",
+      title: "Read-only by design",
+      body: "Mizan never moves money, never places trades, never alters account settings. Your broker connection is read-only. Period.",
     },
     {
       n: "02",
-      title: "Import or connect",
-      body: "Drop in CSV statements, or pair with Mizan Connect for live, encrypted broker sync.",
+      title: "Encrypted everywhere",
+      body: "AES-256-GCM at rest. TLS 1.3 in transit. Connection secrets are encrypted on your device with keys we don't hold.",
     },
     {
       n: "03",
-      title: "Track and grow",
-      body: "Performance, allocation, and goals — measured against the only benchmark that matters: yours.",
+      title: "SOC 2 in progress",
+      body: "Type II audit underway. Auditor and scope published when complete. Trust is earned, not asserted.",
     },
   ] as const,
 } as const;
 
-export const privacyCopy = {
-  eyebrow: "Privacy manifesto",
-  title: "Your money is your business.",
-  body: "Most fintech is built on the assumption that you'll trade your data for the product. We don't believe that's a fair deal. Mizan keeps every position, every transaction, and every report on the device you own. Connect is opt-in, end-to-end encrypted, and uses SnapTrade as a regulated read-only intermediary. We never see your credentials. We never see your positions. We literally cannot.",
-  pillars: [
+export const pricingCopy = {
+  eyebrow: "Pricing",
+  title: "Three tiers. No surprises.",
+  subtitle:
+    "Founding-member pricing is locked for life. The desktop app stays free.",
+  toggle: { annual: "Annual", monthly: "Monthly", saveLabel: "Save 20%" },
+  tiers: [
     {
-      title: "Your data, your disk",
-      body: "Every byte of portfolio data lives in a local SQLite file. No accounts, no telemetry, no sync to us by default.",
+      id: "founder",
+      name: "Founder",
+      blurb: "Founding member. Locked-in pricing. First 500 only.",
+      priceAnnual: "X",
+      priceMonthly: "X",
+      cta: "Join the waitlist",
+      highlighted: false,
+      features: [
+        "Locked-in pricing for life",
+        "Full Mizan suite",
+        "Early access to new modules",
+        "Direct line to the founder",
+      ],
     },
     {
-      title: "Read-only by design",
-      body: "Mizan Connect requests read-only broker access. We can never place a trade, transfer funds, or change account settings.",
+      id: "private",
+      name: "Private",
+      blurb: "Full Mizan suite for individual investors.",
+      priceAnnual: "Y",
+      priceMonthly: "Y",
+      cta: "Join the waitlist",
+      highlighted: true,
+      features: [
+        "Up to 5 brokerages",
+        "Performance Intelligence",
+        "Portfolio Planning",
+        "Goals & Retirement",
+        "Multi-currency",
+        "Portfolio Assistant",
+      ],
     },
     {
-      title: "End-to-end, not end-to-us",
-      body: "Connect payloads are encrypted on your device with keys we don't hold. Even our database administrators see ciphertext.",
+      id: "family-office",
+      name: "Family Office",
+      blurb: "Bespoke. For households and discretionary advisors.",
+      priceAnnual: null,
+      priceMonthly: null,
+      cta: "Contact us",
+      highlighted: false,
+      features: [
+        "Custom integrations",
+        "Multi-member access",
+        "Household-level reporting",
+        "Priority support",
+        "Bespoke onboarding",
+      ],
     },
-  ] as const,
+  ],
+  footnote: "First 500 founding members. Locked-in pricing for life.",
 } as const;
 
-export const trustCopy = {
-  eyebrow: "Why it's trustworthy",
-  title: "Open foundations. Auditable code.",
-  testimonials: [
+export const faqCopy = {
+  eyebrow: "Questions",
+  title: "Frequently asked.",
+  intro:
+    "Direct answers about how Mizan handles your data, your money, and your privacy.",
+  items: [
     {
-      initials: "JM",
-      role: "Family office CIO",
-      quote:
-        "I track nine custodians across three jurisdictions. Mizan is the only tool that gave me a single, honest view without asking for the keys to the kingdom.",
+      q: "Where does my portfolio data live?",
+      a: "On the device you own. Mizan keeps a local SQLite file under your user profile. Nothing syncs to our servers by default. If you opt in to broker connections, position data is forwarded to your device end-to-end encrypted — never stored on our infrastructure.",
     },
     {
-      initials: "RS",
-      role: "Independent advisor",
-      quote:
-        "I recommend it to clients who care about discretion. The fact that the desktop app is fully open source is a feature, not a footnote.",
+      q: "Can Mizan move my money?",
+      a: "No. Broker connections are read-only. Mizan cannot place trades, transfer funds, or alter account settings. The integration is technically incapable of write operations.",
     },
     {
-      initials: "AK",
-      role: "Senior engineer, ex-Goldman",
-      quote:
-        "Local-first done correctly is rare in finance. The codebase is clean, the threat model is honest, and the UI doesn't insult my intelligence.",
+      q: "How does Mizan stay in business if my data isn't the product?",
+      a: "Subscriptions. The optional encrypted broker bridge is paid. The desktop app is free. The economics are honest — you pay for software, not with your data.",
     },
     {
-      initials: "PT",
-      role: "Solo angel investor",
-      quote:
-        "The whole product feels like it was made by someone who actually owns a portfolio. That's a higher bar than most fintech clears.",
+      q: "What if Mizan shuts down tomorrow?",
+      a: "Your data remains on your device. Export to CSV or JSON at any time. There is no vendor lock-in by design — the file format is documented and inspectable.",
+    },
+    {
+      q: "Which brokers are supported?",
+      a: "Fidelity, Schwab, Vanguard, Interactive Brokers, Robinhood, Coinbase, and 25+ others. The supported list grows monthly. If your broker isn't listed, the founder personally responds to requests at hello@mizan.app.",
+    },
+    {
+      q: "Is my data encrypted?",
+      a: "Yes. AES-256-GCM at rest, TLS 1.3 in transit. Connection secrets are encrypted on your device with keys we never hold — including from our own database administrators.",
     },
   ] as const,
 } as const;
 
 export const finalCtaCopy = {
-  title: "Built for investors who actually own their portfolio.",
-  body: "Free, open source, and yours to inspect. No account required.",
-  cta: "Download Mizan",
+  /** Last word "actually own their portfolio" italicised in gold-cream. */
+  headlinePre: "For investors who",
+  headlineEmphasis: "actually own their portfolio.",
+  subhead: "Download free. Subscribe when you're ready.",
+  primaryCta: "Download Mizan",
+  tertiaryCta: "Read the founder letter",
+} as const;
+
+export const footerCopy = {
+  tagline: "A private portfolio terminal.",
+  status: "All systems operational",
+  columns: [
+    {
+      title: "Product",
+      links: [
+        { label: "Features", href: "/#features" },
+        { label: "Privacy", href: "/#security" },
+        { label: "Download", href: "/contact" },
+        { label: "Changelog", href: "/changelog" },
+      ],
+    },
+    {
+      title: "Pricing",
+      links: [
+        { label: "Founder", href: "/#pricing" },
+        { label: "Private", href: "/#pricing" },
+        { label: "Family Office", href: "/contact" },
+        { label: "Compare", href: "/#pricing" },
+      ],
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About", href: "/about" },
+        { label: "Founder Letter", href: "/#founder" },
+        { label: "Press", href: "/press" },
+        { label: "Contact", href: "/contact" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Privacy Policy", href: "/legal/privacy" },
+        { label: "Terms of Service", href: "/legal/terms" },
+        { label: "Security", href: "/security" },
+      ],
+    },
+  ],
+  copyright: "© 2026 Mizan, Ltd. All rights reserved.",
 } as const;

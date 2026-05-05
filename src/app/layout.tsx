@@ -1,7 +1,7 @@
+import type { Metadata, Viewport } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { fraunces, geist, geistMono } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mizan.app";
@@ -9,40 +9,35 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mizan.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mizan — Wealth, in balance.",
+    default: "Mizan — A private portfolio terminal.",
     template: "%s — Mizan",
   },
   description:
-    "The private portfolio tracker for serious investors. Local-first. End-to-end encrypted. Open source.",
+    "A private portfolio terminal for investors who actually own their capital. Stewardship over speculation. Restraint over noise.",
   applicationName: "Mizan",
-  authors: [{ name: "Sami Sayyed" }],
-  creator: "Sami Sayyed",
   keywords: [
-    "portfolio tracker",
-    "investment tracker",
-    "local-first finance",
-    "open source portfolio",
-    "private wealth software",
+    "portfolio terminal",
+    "private portfolio tracker",
+    "investment terminal",
+    "wealth management software",
     "Mizan",
   ],
   openGraph: {
     type: "website",
     siteName: "Mizan",
-    title: "Mizan — Wealth, in balance.",
+    title: "Mizan — A private portfolio terminal.",
     description:
-      "The private portfolio tracker for serious investors. Local-first. End-to-end encrypted. Open source.",
+      "Stewardship over speculation. Restraint over noise. Wealth, in balance.",
     url: siteUrl,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mizan — Wealth, in balance.",
+    title: "Mizan — A private portfolio terminal.",
     description:
-      "The private portfolio tracker for serious investors. Local-first. End-to-end encrypted. Open source.",
+      "Stewardship over speculation. Restraint over noise. Wealth, in balance.",
   },
-  alternates: {
-    canonical: siteUrl,
-  },
+  alternates: { canonical: siteUrl },
   robots: {
     index: true,
     follow: true,
@@ -71,7 +66,9 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">{children}</body>
+      <body className="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">
+        {children}
+      </body>
     </html>
   );
 }
