@@ -1,8 +1,14 @@
 "use client";
 
-import { animate, useInView, useMotionValue, useTransform } from "framer-motion";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
+import { COUNTUP_SPRING_OPTS } from "@/lib/motion";
 
 type Format = "money" | "int";
 
@@ -11,7 +17,7 @@ type Props = {
   prefix?: string;
   suffix?: string;
   format?: Format;
-  duration?: number;
+  className?: string;
 };
 
 function formatValue(n: number, format: Format): string {
@@ -25,29 +31,33 @@ function formatValue(n: number, format: Format): string {
 }
 
 /**
- * Animated number counter. Counts from 0 → value when scrolled into view.
- * Respects prefers-reduced-motion via Framer Motion's MotionConfig.
+ * Animated number counter. useInView + useSpring(60, 20) per the brief.
+ * Geist Mono with tabular-nums via the parent's font class.
  */
-export function CountUp({ value, prefix, suffix, format = "int", duration = 1.6 }: Props) {
+export function CountUp({
+  value,
+  prefix,
+  suffix,
+  format = "int",
+  className,
+}: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const mv = useMotionValue(0);
-  const display = useTransform(mv, (v) => formatValue(v, format));
+  const target = useMotionValue(0);
+  const spring = useSpring(target, COUNTUP_SPRING_OPTS);
+  const display = useTransform(spring, (v) => formatValue(v, format));
 
   useEffect(() => {
-    if (!inView) return;
-    const controls = animate(mv, value, {
-      duration,
-      ease: [0.33, 1, 0.68, 1],
-    });
-    return () => controls.stop();
-  }, [inView, value, duration, mv]);
+    if (inView) target.set(value);
+  }, [inView, value, target]);
 
   return (
-    <span ref={ref} className="inline-flex items-baseline">
-      {prefix ? <span aria-hidden>{prefix}</span> : null}
-      <motion.span>{display}</motion.span>
-      {suffix ? <span aria-hidden>{suffix}</span> : null}
+    <span ref={ref} className={className}>
+      <span className="inline-flex items-baseline tabular">
+        {prefix ? <span aria-hidden>{prefix}</span> : null}
+        <motion.span>{display}</motion.span>
+        {suffix ? <span aria-hidden>{suffix}</span> : null}
+      </span>
     </span>
   );
 }
