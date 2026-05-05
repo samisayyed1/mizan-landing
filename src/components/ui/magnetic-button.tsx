@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { type MouseEvent, type ReactNode, useRef } from "react";
-import { MAGNETIC_SPRING } from "@/lib/motion";
+import { MAGNETIC_SPRING_OPTS_OPTS } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "ghost";
@@ -45,8 +45,8 @@ export function MagneticButton({
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const sx = useSpring(x, MAGNETIC_SPRING);
-  const sy = useSpring(y, MAGNETIC_SPRING);
+  const sx = useSpring(x, MAGNETIC_SPRING_OPTS);
+  const sy = useSpring(y, MAGNETIC_SPRING_OPTS);
 
   const onMove = (e: MouseEvent<HTMLAnchorElement>) => {
     const el = ref.current;

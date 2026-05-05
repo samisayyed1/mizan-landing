@@ -1,4 +1,4 @@
-import type { Transition, Variants } from "framer-motion";
+import type { SpringOptions, Transition, Variants } from "framer-motion";
 
 /**
  * Mizan motion presets. Imports use the framer-motion package (now branded
@@ -15,17 +15,25 @@ import type { Transition, Variants } from "framer-motion";
 export const EASE_OUT_CUBIC = [0.33, 1, 0.68, 1] as const;
 export const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
-export const MAGNETIC_SPRING: Transition = {
-  type: "spring",
+export const MAGNETIC_SPRING_OPTS: SpringOptions = {
   stiffness: 400,
   damping: 100,
   mass: 0.5,
 };
 
-export const COUNTUP_SPRING: Transition = {
+export const MAGNETIC_SPRING: Transition = {
   type: "spring",
+  ...MAGNETIC_SPRING_OPTS,
+};
+
+export const COUNTUP_SPRING_OPTS: SpringOptions = {
   stiffness: 60,
   damping: 20,
+};
+
+export const COUNTUP_SPRING: Transition = {
+  type: "spring",
+  ...COUNTUP_SPRING_OPTS,
 };
 
 /** Standard scroll reveal — 16px translate + opacity, 600ms ease-out cubic. */
