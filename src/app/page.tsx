@@ -1,4 +1,5 @@
 import { BentoGrid } from "@/components/bento/bento-grid";
+import { FaqSection } from "@/components/faq/faq-section";
 import { FounderLetter } from "@/components/founder/founder-letter";
 import { Hero } from "@/components/hero/hero";
 import { PricingSection } from "@/components/pricing/pricing-section";
@@ -16,6 +17,7 @@ export default function Home() {
       <FounderLetter />
       <SecurityTrio />
       <PricingSection />
+      <FaqSection />
     </main>
   );
 }
