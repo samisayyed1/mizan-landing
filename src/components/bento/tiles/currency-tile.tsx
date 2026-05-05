@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BentoTile } from "../bento-tile";
 
 const CURRENCIES = [
@@ -12,12 +12,30 @@ const CURRENCIES = [
 
 export function CurrencyTile({ className }: { className?: string }) {
   const [idx, setIdx] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setIdx((i) => (i + 1) % CURRENCIES.length);
-    }, 2400);
-    return () => clearInterval(id);
+    const el = ref.current;
+    if (!el) return;
+    let id: ReturnType<typeof setInterval> | null = null;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          id = setInterval(() => {
+            setIdx((i) => (i + 1) % CURRENCIES.length);
+          }, 2400);
+        } else if (id) {
+          clearInterval(id);
+          id = null;
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(el);
+    return () => {
+      if (id) clearInterval(id);
+      observer.disconnect();
+    };
   }, []);
 
   const c = CURRENCIES[idx]!;
@@ -34,7 +52,7 @@ export function CurrencyTile({ className }: { className?: string }) {
       body="Real-time FX. Historical conversion. No rebases."
       className={className}
     >
-      <div className="space-y-5">
+      <div ref={ref} className="space-y-5">
         <div className="relative h-16">
           <AnimatePresence mode="wait">
             <motion.div

@@ -18,13 +18,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   experimental: {
-    optimizePackageImports: [
-      "lucide-react",
-      "framer-motion",
-      "@react-three/drei",
-      "@react-three/fiber",
-      "three",
-    ],
+    optimizePackageImports: ["lucide-react", "framer-motion", "recharts"],
   },
   images: {
     formats: ["image/avif", "image/webp"],
