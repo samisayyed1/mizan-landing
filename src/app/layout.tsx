@@ -6,42 +6,63 @@ import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mizan.app";
 
+const description =
+  "A private portfolio terminal for investors who actually own their capital. Track every position across every custodian on the device you own. Stewardship over speculation. Restraint over noise.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Mizan — A private portfolio terminal.",
     template: "%s — Mizan",
   },
-  description:
-    "A private portfolio terminal for investors who actually own their capital. Stewardship over speculation. Restraint over noise.",
+  description,
   applicationName: "Mizan",
+  authors: [{ name: "Sami Sayyed" }],
+  creator: "Sami Sayyed",
+  publisher: "Mizan, Ltd.",
   keywords: [
-    "portfolio terminal",
-    "private portfolio tracker",
+    "private portfolio terminal",
     "investment terminal",
     "wealth management software",
+    "portfolio tracker",
+    "multi-currency portfolio",
+    "private banking software",
     "Mizan",
   ],
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
     type: "website",
     siteName: "Mizan",
     title: "Mizan — A private portfolio terminal.",
-    description:
-      "Stewardship over speculation. Restraint over noise. Wealth, in balance.",
+    description,
     url: siteUrl,
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Mizan — Wealth, in balance.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mizan — A private portfolio terminal.",
-    description:
-      "Stewardship over speculation. Restraint over noise. Wealth, in balance.",
+    description,
+    images: ["/opengraph-image"],
   },
   alternates: { canonical: siteUrl },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
