@@ -77,14 +77,12 @@ export function MobileWaitlist() {
           fontVariationSettings: "'opsz' 56, 'wght' 500, 'SOFT' 30, 'WONK' 0",
         }}
       >
-        Mizan, in your{" "}
-        <span className="italic text-[var(--gold-cream)]">pocket.</span>
+        Mizan, in your <span className="italic text-[var(--gold-cream)]">pocket.</span>
       </h2>
 
       <p className="mt-6 max-w-[480px] text-base leading-relaxed text-[var(--text-muted)]">
-        Native iOS and Android apps are in development. Subscribe to Mizan
-        Connect today and your portfolio will sync seamlessly when mobile
-        arrives.
+        Native iOS and Android apps are in development. Subscribe to Mizan Connect today and your
+        portfolio will sync seamlessly when mobile arrives.
       </p>
 
       {status === "success" ? (
@@ -116,11 +114,7 @@ export function MobileWaitlist() {
           >
             {status === "submitting" ? "Sending…" : "Notify me"}
             {status !== "submitting" ? (
-              <ArrowRight
-                aria-hidden
-                className="h-3.5 w-3.5"
-                strokeWidth={1.5}
-              />
+              <ArrowRight aria-hidden className="h-3.5 w-3.5" strokeWidth={1.5} />
             ) : null}
           </button>
         </form>

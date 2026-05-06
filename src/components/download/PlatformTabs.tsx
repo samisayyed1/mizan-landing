@@ -34,9 +34,7 @@ export function PlatformTabs({ value, onChange }: Props) {
         aria-selected={value === "desktop"}
         onClick={() => onChange("desktop")}
         className={`relative z-10 px-5 py-1.5 font-mono-data text-[11px] uppercase tracking-[0.18em] transition-colors duration-150 ${
-          value === "desktop"
-            ? "text-[var(--text-primary)]"
-            : "text-[var(--text-subtle)]"
+          value === "desktop" ? "text-[var(--text-primary)]" : "text-[var(--text-subtle)]"
         }`}
       >
         Desktop
@@ -47,9 +45,7 @@ export function PlatformTabs({ value, onChange }: Props) {
         aria-selected={value === "mobile"}
         onClick={() => onChange("mobile")}
         className={`relative z-10 px-5 py-1.5 font-mono-data text-[11px] uppercase tracking-[0.18em] transition-colors duration-150 ${
-          value === "mobile"
-            ? "text-[var(--text-primary)]"
-            : "text-[var(--text-subtle)]"
+          value === "mobile" ? "text-[var(--text-primary)]" : "text-[var(--text-subtle)]"
         }`}
       >
         Mobile

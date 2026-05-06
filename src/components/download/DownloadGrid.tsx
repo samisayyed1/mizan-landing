@@ -19,11 +19,7 @@ export function DownloadGrid() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {DOWNLOADS.map((d) => (
-        <InstallerCard
-          key={d.key}
-          download={d}
-          recommended={detected === d.key}
-        />
+        <InstallerCard key={d.key} download={d} recommended={detected === d.key} />
       ))}
     </div>
   );

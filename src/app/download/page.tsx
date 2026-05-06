@@ -2,10 +2,7 @@
 
 import { DownloadGrid } from "@/components/download/DownloadGrid";
 import { MobileWaitlist } from "@/components/download/MobileWaitlist";
-import {
-  PlatformTabs,
-  type PlatformTab,
-} from "@/components/download/PlatformTabs";
+import { type PlatformTab, PlatformTabs } from "@/components/download/PlatformTabs";
 import { SystemRequirements } from "@/components/download/SystemRequirements";
 import { UnsignedNote } from "@/components/download/UnsignedNote";
 import { Footer } from "@/components/footer/footer";
@@ -47,14 +44,12 @@ export default function DownloadPage() {
             style={{
               fontSize: "clamp(40px, 5.5vw, 88px)",
               lineHeight: 1.08,
-              fontVariationSettings:
-                "'opsz' 96, 'wght' 400, 'SOFT' 30, 'WONK' 0",
+              fontVariationSettings: "'opsz' 96, 'wght' 400, 'SOFT' 30, 'WONK' 0",
             }}
           >
             Install Mizan
             <br />
-            on your{" "}
-            <span className="italic text-[var(--gold-cream)]">machine.</span>
+            on your <span className="italic text-[var(--gold-cream)]">machine.</span>
           </h1>
           <p className="mt-6 max-w-[560px] text-[17px] leading-relaxed text-[var(--text-muted)]">
             A private portfolio terminal. Free to download.
@@ -108,8 +103,7 @@ export default function DownloadPage() {
             style={{
               fontSize: 32,
               lineHeight: 1.16,
-              fontVariationSettings:
-                "'opsz' 32, 'wght' 500, 'SOFT' 30, 'WONK' 0",
+              fontVariationSettings: "'opsz' 32, 'wght' 500, 'SOFT' 30, 'WONK' 0",
             }}
           >
             Open Mizan and connect your first broker.

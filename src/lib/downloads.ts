@@ -5,14 +5,15 @@
  * that include the version (e.g. Mizan_3.3.0_aarch64.dmg), so updating
  * CURRENT_VERSION below on each release tag is a one-line change.
  *
- * Option B (server-side GitHub API discovery) was considered and skipped
+ * Option B (server-side release-API discovery) was considered and skipped
  * for this chunk — the hardcoded `releases/latest/download/<file>`
  * redirect already self-resolves to whichever release is currently
  * marked "latest", so the only thing the version-bump touches is the
  * filename suffix shown in our copy.
  *
- * Sole allowed GitHub mention is rendered by `<UnsignedNote />` as the
- * "Older versions →" link. Don't add others without bumping the design
+ * The single user-visible mention of the source host is rendered by
+ * `<UnsignedNote />` as the "Older versions →" link (see the
+ * RELEASE_BASE URL below). Don't add others without bumping the design
  * skill's ban-list exemption.
  */
 
@@ -32,7 +33,7 @@ export type Download = {
   detail: string;
   /** Geist Mono. Approximate; verified per-release before tagging. */
   size: string;
-  /** Resolves to GitHub's `latest` redirect; 404s until v3.3.0 publishes. */
+  /** Resolves to the source host's `latest` redirect; 404s until v3.3.0 publishes. */
   url: string;
   /** Architecture used by the OS detector. */
   arch: "arm64" | "x64";

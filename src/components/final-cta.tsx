@@ -32,8 +32,7 @@ export function FinalCta() {
             style={{
               fontSize: "clamp(40px, 6vw, 88px)",
               lineHeight: 1.05,
-              fontVariationSettings:
-                "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
+              fontVariationSettings: "'opsz' 144, 'wght' 400, 'SOFT' 30, 'WONK' 0",
             }}
           >
             <span className="block">{finalCtaCopy.headlinePre}</span>

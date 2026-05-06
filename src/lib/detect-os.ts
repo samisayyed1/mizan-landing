@@ -19,9 +19,7 @@ import type { DownloadKey } from "./downloads";
 
 type UADataLike = {
   architecture?: string;
-  getHighEntropyValues?: (
-    hints: string[],
-  ) => Promise<{ architecture?: string }>;
+  getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string }>;
 };
 
 declare global {
@@ -39,8 +37,7 @@ export function detectOS(): DownloadKey | null {
   if (/Mac/i.test(platform) || /Mac OS X|Macintosh/i.test(ua)) {
     const arch = navigator.userAgentData?.architecture;
     if (arch === "x86" || arch === "x86_64") return "macOS-intel";
-    if (arch === "arm" || arch === "arm64" || /\barm/i.test(ua))
-      return "macOS-arm";
+    if (arch === "arm" || arch === "arm64" || /\barm/i.test(ua)) return "macOS-arm";
     // Default new-Mac path. See doc-comment for rationale.
     return "macOS-arm";
   }

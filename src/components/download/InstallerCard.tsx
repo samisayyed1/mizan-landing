@@ -43,10 +43,7 @@ export function InstallerCard({ download, recommended }: Props) {
             : "border border-[var(--border-default)] hover:border-[rgba(139,111,71,0.45)]"
         }`}
       >
-        <PlatformIcon
-          platform={download.key}
-          className="h-8 w-8 text-[var(--gold-deep)]"
-        />
+        <PlatformIcon platform={download.key} className="h-8 w-8 text-[var(--gold-deep)]" />
 
         <h3
           className="font-display mt-6 text-[var(--text-primary)]"
@@ -59,9 +56,7 @@ export function InstallerCard({ download, recommended }: Props) {
           {download.label}
         </h3>
 
-        <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
-          {download.detail}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">{download.detail}</p>
 
         <p className="mt-4 font-mono-data text-[13px] text-[var(--text-subtle)] tabular">
           {download.size}

@@ -20,19 +20,11 @@ export function UnsignedNote() {
     <div className="mt-12 flex flex-col gap-8">
       <div className="grain relative isolate w-full max-w-[600px] rounded-[16px] border border-[var(--border-default)] bg-[var(--surface-2)] p-6 md:p-7">
         <p className="text-[15px] leading-relaxed text-[var(--text-muted)]">
-          Mizan is unsigned during the founding-member period. On macOS,
-          right-click the
-          <span className="font-mono-data text-[14px] text-[var(--text-primary)]">
-            {" "}
-            .dmg{" "}
-          </span>
-          and choose <span className="text-[var(--text-primary)]">Open</span>.
-          On Windows, click
-          <span className="text-[var(--text-primary)]">
-            {" "}
-            More info → Run anyway
-          </span>
-          . We&rsquo;ll add code signing once we exit private beta.
+          Mizan is unsigned during the founding-member period. On macOS, right-click the
+          <span className="font-mono-data text-[14px] text-[var(--text-primary)]"> .dmg </span>
+          and choose <span className="text-[var(--text-primary)]">Open</span>. On Windows, click
+          <span className="text-[var(--text-primary)]"> More info → Run anyway</span>. We&rsquo;ll
+          add code signing once we exit private beta.
         </p>
 
         <button
@@ -76,10 +68,9 @@ export function UnsignedNote() {
               className="overflow-hidden"
             >
               <p className="mt-4 max-w-prose text-[14px] leading-relaxed text-[var(--text-muted)]">
-                Code signing certificates cost ~$300/year and require an
-                established business identity. We&rsquo;re prioritising the
-                product first. The installers are unmodified and built
-                reproducibly on every release.
+                Code signing certificates cost ~$300/year and require an established business
+                identity. We&rsquo;re prioritising the product first. The installers are unmodified
+                and built reproducibly on every release.
               </p>
             </motion.div>
           ) : null}
