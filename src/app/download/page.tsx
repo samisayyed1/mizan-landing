@@ -1,10 +1,13 @@
 "use client";
 
 import { DownloadGrid } from "@/components/download/DownloadGrid";
+import { MobileWaitlist } from "@/components/download/MobileWaitlist";
 import {
   PlatformTabs,
   type PlatformTab,
 } from "@/components/download/PlatformTabs";
+import { SystemRequirements } from "@/components/download/SystemRequirements";
+import { UnsignedNote } from "@/components/download/UnsignedNote";
 import { Footer } from "@/components/footer/footer";
 import { Nav } from "@/components/nav/nav";
 import { AnimatePresence, motion } from "framer-motion";
@@ -77,6 +80,7 @@ export default function DownloadPage() {
                 transition={{ duration: 0.18 }}
               >
                 <DownloadGrid />
+                <UnsignedNote />
               </motion.div>
             ) : (
               <motion.div
@@ -85,19 +89,19 @@ export default function DownloadPage() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-                className="py-16"
+                className="py-12"
               >
-                <p className="text-center text-sm text-[var(--text-muted)]">
-                  Mobile content lands in commit 3.
-                </p>
+                <MobileWaitlist />
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-        {/* 5. Final small CTA — placeholder until commit 3 wires the
-              system-requirements accordion above it. */}
-        <section className="mt-32 mb-8 flex flex-col items-center text-center">
+        {/* 4. System requirements (full-width accordion) */}
+        <SystemRequirements />
+
+        {/* 5. Final small CTA */}
+        <section className="mt-24 mb-8 flex flex-col items-center text-center">
           <p className="eyebrow">Already downloaded?</p>
           <h2
             className="font-display mt-4 max-w-[480px] text-balance text-[var(--text-primary)]"
