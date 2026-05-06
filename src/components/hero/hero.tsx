@@ -33,7 +33,11 @@ export function Hero() {
   const [line1, line2, line3] = heroCopy.headline;
 
   return (
-    <section id="hero" aria-labelledby="hero-heading" className="relative isolate overflow-hidden">
+    <section
+      id="hero"
+      aria-labelledby="hero-heading"
+      className="relative isolate overflow-hidden"
+    >
       <AmbientGold />
       <GridGuides />
       <Crosshairs />
@@ -47,7 +51,9 @@ export function Hero() {
                 aria-hidden
                 className="pulse-dot block h-1.5 w-1.5 rounded-full bg-[var(--gold-cream)]"
               />
-              <p className="eyebrow text-[var(--gold-cream)]">{heroCopy.eyebrow}</p>
+              <p className="eyebrow text-[var(--gold-cream)]">
+                {heroCopy.eyebrow}
+              </p>
             </div>
 
             <h1
@@ -70,7 +76,7 @@ export function Hero() {
             </p>
 
             <div className="hero-fade delay-7 mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
-              <MagneticButton href="/contact" variant="primary">
+              <MagneticButton href="/download" variant="primary">
                 {heroCopy.primaryCta}
               </MagneticButton>
 

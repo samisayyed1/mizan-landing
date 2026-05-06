@@ -76,7 +76,7 @@ export function Nav() {
 
         <div className="hidden items-center gap-4 md:flex">
           <Link
-            href="/contact"
+            href="/download"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-[var(--gold-primary)] px-5 py-2.5 text-xs font-medium tracking-tight text-[var(--bg-base)] transition-all duration-200 hover:bg-[var(--gold-cream)] hover:shadow-[0_8px_24px_-8px_rgba(212,165,116,0.5)]"
           >
             <span
@@ -139,7 +139,7 @@ export function Nav() {
               ))}
               <li className="mt-4">
                 <Link
-                  href="/contact"
+                  href="/download"
                   onClick={() => setOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-md bg-[var(--gold-primary)] px-5 py-3 text-sm font-medium text-[var(--bg-base)]"
                 >
