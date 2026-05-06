@@ -26,16 +26,11 @@ export function StatsStrip() {
         className="mx-auto grid max-w-[var(--container-default)] grid-cols-2 divide-[var(--border-subtle)] md:grid-cols-4 md:divide-x"
       >
         {statsCopy.metrics.map((m) => (
-          <motion.div
-            key={m.label}
-            variants={fadeUp}
-            className="px-6 py-10 md:px-10 md:py-12"
-          >
+          <motion.div key={m.label} variants={fadeUp} className="px-6 py-10 md:px-10 md:py-12">
             <div className="font-mono-data text-3xl text-[var(--text-primary)] md:text-4xl">
               <CountUp
                 value={m.value}
-                prefix={"prefix" in m ? m.prefix : undefined}
-                suffix={"suffix" in m ? m.suffix : undefined}
+                suffix={"suffix" in m ? (m.suffix as string) : undefined}
                 format={m.format}
               />
             </div>

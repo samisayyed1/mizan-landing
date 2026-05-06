@@ -121,8 +121,7 @@ export const securityCopy = {
 export const pricingCopy = {
   eyebrow: "Pricing",
   title: "Three tiers. No surprises.",
-  subtitle:
-    "Founding-member pricing is locked for life. The desktop app stays free.",
+  subtitle: "Founding-member pricing is locked for life. The desktop app stays free.",
   toggle: { annual: "Annual", monthly: "Monthly", saveLabel: "Save 20%" },
   tiers: [
     {
@@ -180,8 +179,7 @@ export const pricingCopy = {
 export const faqCopy = {
   eyebrow: "Questions",
   title: "Frequently asked.",
-  intro:
-    "Direct answers about how Mizan handles your data, your money, and your privacy.",
+  intro: "Direct answers about how Mizan handles your data, your money, and your privacy.",
   items: [
     {
       q: "Where does my portfolio data live?",
