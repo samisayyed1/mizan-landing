@@ -22,20 +22,25 @@ export const heroCopy = {
 
 export const statsCopy = {
   /**
-   * Placeholder values. Replace with real metrics before launch.
-   * Per brand guidelines: no fabricated numbers.
+   * Software facts about Mizan — never user metrics, never fabricated.
+   * Each value is something the product literally already does today:
+   *   - 6 modules: Performance Intelligence, Portfolio Planning, Asset
+   *     Tracking, Goals & Retirement, Multi-currency, Portfolio Assistant.
+   *   - 25+ brokerages: SnapTrade aggregator coverage on the integrated tier.
+   *   - 30 currencies: native FX support in mizan-market-data.
+   *   - 10 asset classes: equities, crypto, FX, property, vehicles,
+   *     collectibles, precious metals, private equity, liabilities, other.
    */
   metrics: [
+    { label: "Product modules", value: 6, format: "int" as const },
     {
-      label: "Assets tracked",
-      value: 1,
-      prefix: "$",
+      label: "Brokerages connected",
+      value: 25,
       suffix: "+",
-      format: "money" as const,
+      format: "int" as const,
     },
-    { label: "Portfolios under track", value: 1, format: "int" as const },
-    { label: "Brokers supported", value: 1, format: "int" as const },
-    { label: "Currencies supported", value: 30, format: "int" as const },
+    { label: "Currencies tracked", value: 30, format: "int" as const },
+    { label: "Asset classes covered", value: 10, format: "int" as const },
   ],
 } as const;
 
@@ -116,7 +121,8 @@ export const securityCopy = {
 export const pricingCopy = {
   eyebrow: "Pricing",
   title: "Three tiers. No surprises.",
-  subtitle: "Founding-member pricing is locked for life. The desktop app stays free.",
+  subtitle:
+    "Founding-member pricing is locked for life. The desktop app stays free.",
   toggle: { annual: "Annual", monthly: "Monthly", saveLabel: "Save 20%" },
   tiers: [
     {
@@ -174,7 +180,8 @@ export const pricingCopy = {
 export const faqCopy = {
   eyebrow: "Questions",
   title: "Frequently asked.",
-  intro: "Direct answers about how Mizan handles your data, your money, and your privacy.",
+  intro:
+    "Direct answers about how Mizan handles your data, your money, and your privacy.",
   items: [
     {
       q: "Where does my portfolio data live?",
