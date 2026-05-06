@@ -18,7 +18,7 @@
  */
 
 /** Bump on each desktop release tag. Mirrors apps/tauri/tauri.conf.json. */
-export const CURRENT_VERSION = "3.3.0";
+export const CURRENT_VERSION = "3.3.1";
 
 const RELEASE_BASE = "https://github.com/samisayyed1/mizan-4/releases";
 
@@ -33,7 +33,7 @@ export type Download = {
   detail: string;
   /** Geist Mono. Approximate; verified per-release before tagging. */
   size: string;
-  /** Resolves to the source host's `latest` redirect; 404s until v3.3.0 publishes. */
+  /** Resolves to the source host's `latest` redirect for the current version. */
   url: string;
   /** Architecture used by the OS detector. */
   arch: "arm64" | "x64";
