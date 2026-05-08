@@ -18,7 +18,7 @@
  */
 
 /** Bump on each desktop release tag. Mirrors apps/tauri/tauri.conf.json. */
-export const CURRENT_VERSION = "3.3.7";
+export const CURRENT_VERSION = "3.3.8";
 
 const RELEASE_BASE = "https://github.com/samisayyed1/mizan-4/releases";
 
